@@ -70,6 +70,18 @@ public class Window extends GLFW {
 
     private static native FrameBufferSizeCallback SetFrameBufferSizeCallback(long handle, FrameBufferSizeCallback callback);
 
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            if (nativeHandle != 0) {
+                Close(nativeHandle);
+                nativeHandle = 0;
+            }
+        } finally {
+            super.finalize();
+        }
+    }
+
     public static interface PositionCallback {
         void callback(Window window, Rectangle position);
     }
