@@ -54,7 +54,15 @@ public class GLFW {
      */
     protected long nativeHandle;
 
-    public static native ErrorCallback SetErrorCallback(ErrorCallback callback);
+    private static native int Init();
+
+    private static native void Terminate();
+
+    private static native Version GetVersion();
+
+    private static native String GetVersionString();
+
+    private static native ErrorCallback SetErrorCallback(ErrorCallback callback);
 
     public static interface ErrorCallback {
         void callback(int code, String message);
