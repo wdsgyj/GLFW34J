@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="GLFW4J" default="help">
+    <property name="bin" location="bin"/>
+    <property name="bin.classes" location="${bin}/classes"/>
+    <property name="java.src" location="src"/>
+    <property name="jni.src" location="jni"/>
+    <property name="build.jar" location="${bin}/${ant.project.name}.jar"/>
+
+    <target name="-clean-classes" description="删除 class 文件">
+        <delete verbose="on"
+                dir="${bin.classes}"
+                failonerror="on"
+                includeemptydirs="on"
+                includes="**/*"/>
+
+        <mkdir dir="${bin.classes}"/>
+    </target>
+
+    <target name="-compile"
+            description="编译生成 class 文件"
+            depends="-clean-classes">
+        <javac source="1.6"
+               destdir="${bin.classes}"
+               srcdir="${java.src}"
+               failonerror="on"
+               encoding="UTF-8"
+               includeantruntime="off"
+               verbose="off">
+            <src>
+                <pathelement location="${java.src}"/>
+            </src>
+        </javac>
+    </target>
+
+    <target name="gen-header" depends="-compile" description="生成 C 头文件">
+        <javah verbose="on"
+               destdir="${jni.src}"
+               force="on"
+               classpath="${bin.classes}">
+            <class name="com.clark.glfw3.GLFW"/>
+            <class name="com.clark.glfw3.Window"/>
+            <class name="com.clark.glfw3.Monitor"/>
+        </javah>
+    </target>
+
+    <target name="build" depends="-compile" description="打包">
+        <jar destfile="${build.jar}">
+            <fileset dir="${bin.classes}" includes="**/*.class" excludes="**/test/*"/>
+        </jar>
+    </target>
+
+    <target name="help">
+        <echo>帮助</echo>
+    </target>
+</project>
