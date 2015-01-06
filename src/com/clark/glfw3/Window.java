@@ -130,4 +130,40 @@ public class Window extends GLFW {
     private static native char[] GetJoystickButtons(int joy);
 
     private static native String GetJoystickName(int joy);
+
+    private static native MouseButtonCallback SetMouseButtonCallback(long handle, MouseButtonCallback callback);
+
+    private static native CursorPositionCallback SetCursorPositionCallback(long handle, CursorPositionCallback callback);
+
+    private static native CursorEnterCallback SetCursorEnterCallback(long handle, CursorEnterCallback callback);
+
+    private static native ScrollCallback SetScrollCallback(long handle, ScrollCallback callback);
+
+    private static native KeyCallback SetKeyCallback(long handle, KeyCallback callback);
+
+    private static native CharCallback SetCharCallback(long handle, CharCallback callback);
+
+    public static interface MouseButtonCallback {
+        void callback(Window window, int button, int action, int mods);
+    }
+
+    public static interface CursorPositionCallback {
+        void callback(Window window, PositionF position);
+    }
+
+    public static interface CursorEnterCallback {
+        void callback(Window window, boolean entered);
+    }
+
+    public static interface ScrollCallback {
+        void callback(Window window, double xoffset, double yoffset);
+    }
+
+    public static interface KeyCallback {
+        void callback(Window window, int key, int scancode, int action, int mods);
+    }
+
+    public static interface CharCallback {
+        void callback(Window window, char codepoint);
+    }
 }

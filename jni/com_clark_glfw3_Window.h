@@ -375,6 +375,54 @@ JNIEXPORT jcharArray JNICALL Java_com_clark_glfw3_Window_GetJoystickButtons
 JNIEXPORT jstring JNICALL Java_com_clark_glfw3_Window_GetJoystickName
   (JNIEnv *, jclass, jint);
 
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetMouseButtonCallback
+ * Signature: (JLcom/clark/glfw3/Window$MouseButtonCallback;)Lcom/clark/glfw3/Window$MouseButtonCallback;
+ */
+JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetMouseButtonCallback
+  (JNIEnv *, jclass, jlong, jobject);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetCursorPositionCallback
+ * Signature: (JLcom/clark/glfw3/Window$CursorPositionCallback;)Lcom/clark/glfw3/Window$CursorPositionCallback;
+ */
+JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetCursorPositionCallback
+  (JNIEnv *, jclass, jlong, jobject);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetCursorEnterCallback
+ * Signature: (JLcom/clark/glfw3/Window$CursorEnterCallback;)Lcom/clark/glfw3/Window$CursorEnterCallback;
+ */
+JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetCursorEnterCallback
+  (JNIEnv *, jclass, jlong, jobject);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetScrollCallback
+ * Signature: (JLcom/clark/glfw3/Window$ScrollCallback;)Lcom/clark/glfw3/Window$ScrollCallback;
+ */
+JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetScrollCallback
+  (JNIEnv *, jclass, jlong, jobject);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetKeyCallback
+ * Signature: (JLcom/clark/glfw3/Window$KeyCallback;)Lcom/clark/glfw3/Window$KeyCallback;
+ */
+JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetKeyCallback
+  (JNIEnv *, jclass, jlong, jobject);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetCharCallback
+ * Signature: (JLcom/clark/glfw3/Window$CharCallback;)Lcom/clark/glfw3/Window$CharCallback;
+ */
+JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetCharCallback
+  (JNIEnv *, jclass, jlong, jobject);
+
 #ifdef __cplusplus
 }
 #endif
