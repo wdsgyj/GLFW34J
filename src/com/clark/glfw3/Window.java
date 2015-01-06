@@ -50,6 +50,10 @@ public class Window extends GLFW {
 
     private static native void WaitEvents(long handle);
 
+    private static native void SetClipboardString(long handle, String txt);
+
+    private static native String GetClipboardString(long handle);
+
     private static native void Close(long handle);
 
     private static native PositionCallback SetPositionCallback(long handle, PositionCallback callback);
