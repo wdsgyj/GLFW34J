@@ -50,6 +50,21 @@ public class GLFW {
     public static final int GLFW_FORMAT_UNAVAILABLE = 0x00010009;
 
     /**
+     * The key or button was released
+     */
+    public static final int GLFW_RELEASE = 0;
+
+    /**
+     * The key or button was pressed
+     */
+    public static final int GLFW_PRESS = 1;
+
+    /**
+     * The key was held down until it repeated
+     */
+    public static final int GLFW_REPEAT = 2;
+
+    /**
      * JNI 底层句柄对象
      */
     protected long nativeHandle;

@@ -25,6 +25,12 @@ extern "C" {
 #define com_clark_glfw3_Monitor_GLFW_PLATFORM_ERROR 65544L
 #undef com_clark_glfw3_Monitor_GLFW_FORMAT_UNAVAILABLE
 #define com_clark_glfw3_Monitor_GLFW_FORMAT_UNAVAILABLE 65545L
+#undef com_clark_glfw3_Monitor_GLFW_RELEASE
+#define com_clark_glfw3_Monitor_GLFW_RELEASE 0L
+#undef com_clark_glfw3_Monitor_GLFW_PRESS
+#define com_clark_glfw3_Monitor_GLFW_PRESS 1L
+#undef com_clark_glfw3_Monitor_GLFW_REPEAT
+#define com_clark_glfw3_Monitor_GLFW_REPEAT 2L
 /*
  * Class:     com_clark_glfw3_Monitor
  * Method:    GetMonitors

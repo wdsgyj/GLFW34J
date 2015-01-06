@@ -4,6 +4,18 @@ package com.clark.glfw3;
  * GLFW 窗口类。
  */
 public class Window extends GLFW {
+    @Override
+    protected void finalize() throws Throwable {
+        try {
+            if (nativeHandle != 0) {
+                Close(nativeHandle);
+                nativeHandle = 0;
+            }
+        } finally {
+            super.finalize();
+        }
+    }
+
     private static native void ResetHintsToDefault(long handle);
 
     private static native void SetHint(long handle, int target, int hint);
@@ -70,18 +82,6 @@ public class Window extends GLFW {
 
     private static native FrameBufferSizeCallback SetFrameBufferSizeCallback(long handle, FrameBufferSizeCallback callback);
 
-    @Override
-    protected void finalize() throws Throwable {
-        try {
-            if (nativeHandle != 0) {
-                Close(nativeHandle);
-                nativeHandle = 0;
-            }
-        } finally {
-            super.finalize();
-        }
-    }
-
     public static interface PositionCallback {
         void callback(Window window, Rectangle position);
     }
@@ -109,4 +109,25 @@ public class Window extends GLFW {
     public static interface FrameBufferSizeCallback {
         void callback(Window window, Rectangle size);
     }
+
+    // 和 Input 相关的函数
+    private static native int GetInputMode(long handle, int mode);
+
+    private static native void SetInputMode(long handle, int mode, int value);
+
+    private static native int GetKey(long handle, int key);
+
+    private static native int GetMouseButton(long handle, int button);
+
+    private static native PositionF GetCursorPosition(long handle);
+
+    private static native void SetCursorPosition(long handle, PositionF position);
+
+    private static native int JoystickPresent(int joy);
+
+    private static native float[] GetJoystickAxes(int joy);
+
+    private static native char[] GetJoystickButtons(int joy);
+
+    private static native String GetJoystickName(int joy);
 }

@@ -25,6 +25,12 @@ extern "C" {
 #define com_clark_glfw3_Window_GLFW_PLATFORM_ERROR 65544L
 #undef com_clark_glfw3_Window_GLFW_FORMAT_UNAVAILABLE
 #define com_clark_glfw3_Window_GLFW_FORMAT_UNAVAILABLE 65545L
+#undef com_clark_glfw3_Window_GLFW_RELEASE
+#define com_clark_glfw3_Window_GLFW_RELEASE 0L
+#undef com_clark_glfw3_Window_GLFW_PRESS
+#define com_clark_glfw3_Window_GLFW_PRESS 1L
+#undef com_clark_glfw3_Window_GLFW_REPEAT
+#define com_clark_glfw3_Window_GLFW_REPEAT 2L
 /*
  * Class:     com_clark_glfw3_Window
  * Method:    ResetHintsToDefault
@@ -288,6 +294,86 @@ JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetIconifyCallback
  */
 JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_SetFrameBufferSizeCallback
   (JNIEnv *, jclass, jlong, jobject);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    GetInputMode
+ * Signature: (JI)I
+ */
+JNIEXPORT jint JNICALL Java_com_clark_glfw3_Window_GetInputMode
+  (JNIEnv *, jclass, jlong, jint);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetInputMode
+ * Signature: (JII)V
+ */
+JNIEXPORT void JNICALL Java_com_clark_glfw3_Window_SetInputMode
+  (JNIEnv *, jclass, jlong, jint, jint);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    GetKey
+ * Signature: (JI)I
+ */
+JNIEXPORT jint JNICALL Java_com_clark_glfw3_Window_GetKey
+  (JNIEnv *, jclass, jlong, jint);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    GetMouseButton
+ * Signature: (JI)I
+ */
+JNIEXPORT jint JNICALL Java_com_clark_glfw3_Window_GetMouseButton
+  (JNIEnv *, jclass, jlong, jint);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    GetCursorPosition
+ * Signature: (J)Lcom/clark/glfw3/PositionF;
+ */
+JNIEXPORT jobject JNICALL Java_com_clark_glfw3_Window_GetCursorPosition
+  (JNIEnv *, jclass, jlong);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    SetCursorPosition
+ * Signature: (JLcom/clark/glfw3/PositionF;)V
+ */
+JNIEXPORT void JNICALL Java_com_clark_glfw3_Window_SetCursorPosition
+  (JNIEnv *, jclass, jlong, jobject);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    JoystickPresent
+ * Signature: (I)I
+ */
+JNIEXPORT jint JNICALL Java_com_clark_glfw3_Window_JoystickPresent
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    GetJoystickAxes
+ * Signature: (I)[F
+ */
+JNIEXPORT jfloatArray JNICALL Java_com_clark_glfw3_Window_GetJoystickAxes
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    GetJoystickButtons
+ * Signature: (I)[C
+ */
+JNIEXPORT jcharArray JNICALL Java_com_clark_glfw3_Window_GetJoystickButtons
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     com_clark_glfw3_Window
+ * Method:    GetJoystickName
+ * Signature: (I)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_clark_glfw3_Window_GetJoystickName
+  (JNIEnv *, jclass, jint);
 
 #ifdef __cplusplus
 }
