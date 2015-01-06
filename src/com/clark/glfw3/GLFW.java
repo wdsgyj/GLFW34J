@@ -72,6 +72,10 @@ public class GLFW {
 
     private static native long GetProcFuncAddress(String procname);
 
+    private static native double GetTime();
+
+    private static native void SetTime(double time);
+
     private static native ErrorCallback SetErrorCallback(ErrorCallback callback);
 
     public static interface ErrorCallback {
