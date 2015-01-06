@@ -44,6 +44,8 @@ public class Window extends GLFW {
 
     private static native Object GetUserPointer(long handle);
 
+    private static native void SwapBuffers(long handle);
+
     private static native void PollEvents(long handle);
 
     private static native void WaitEvents(long handle);

@@ -62,6 +62,16 @@ public class GLFW {
 
     private static native String GetVersionString();
 
+    private static native void MakeContextCurrent(long window);
+
+    private static native long GetCurrentContext();
+
+    private static native void SwapInterval(int interval);
+
+    private static native int IsExtensionSupported(String extension);
+
+    private static native long GetProcFuncAddress(String procname);
+
     private static native ErrorCallback SetErrorCallback(ErrorCallback callback);
 
     public static interface ErrorCallback {
