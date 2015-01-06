@@ -3,7 +3,7 @@ package com.clark.glfw3;
 /**
  * GLFW 窗口类。
  */
-public class Window extends NativeApi {
+public class Window extends GLFW {
     private static native void ResetHintsToDefault(long handle);
 
     private static native void SetHint(long handle, int target, int hint);
