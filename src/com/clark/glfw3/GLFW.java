@@ -4,6 +4,15 @@ package com.clark.glfw3;
  * Created by clark on 15-1-6.
  */
 public class GLFW {
+    static {
+        try {
+            System.loadLibrary("glfw3_jni");
+            Init();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     /**
      * JNI 底层句柄对象
      */
